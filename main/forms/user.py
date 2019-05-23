@@ -8,9 +8,10 @@ from .base import BootstrapFormMixin
 class UserForm(BootstrapFormMixin, ModelForm):
     class Meta:
         model = User
-        fields = ['name', 'email']
+        fields = ['name', 'email', 'icon']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['name'].required = False
         self.fields['email'].required = False
+        self.fields['icon'].required = False

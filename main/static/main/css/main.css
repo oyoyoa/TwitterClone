@@ -1,0 +1,103 @@
+/* ALL */
+*{
+  color:#3c3c3c;
+  font-family: YuGothic;
+}
+html, body{
+  position:relative;
+  min-height:100vh;
+}
+body{
+  padding: 100px 0;
+  margin:0;
+  background-color: rgb(240,240,240);
+}
+main{
+  max-width: 900px;
+  position: relative;
+  padding: 50px;
+}
+section{
+  padding-top: 100px;
+}
+a{
+  cursor: pointer;
+}
+a:hover{
+  text-decoration: none;
+}
+
+/* HEADER */
+header{
+  background-color: rgba(0,0,0,0.8);
+  position:fixed;
+  z-index:100;
+  top:0;
+  left:0;
+  width:100vw;
+  transition: 0.5s;
+}
+#navbarNavDropdown{
+  text-align: right;
+}
+.dropdown-menu{
+  background-color: rgba(255, 255, 255, 0.938);
+  border: 1px solid #333;
+  margin-top: 10px;
+}
+
+/* article */
+
+.article{
+  background-color: white;
+  width: 100%;
+  margin-bottom: 1px;
+}
+.article:hover{
+  background-color: rgba(253, 253, 253, 0.651);
+}
+.article-contents{
+  position: relative;
+  padding: 10px 20px;
+}
+.tweet-content{
+  text-align: left;
+  margin: 25px 0 0 50px;
+  font-size: 20px;
+}
+.tweet-date{
+  float: left;
+  display: block;
+  margin-top: 5px;
+  opacity: 0.6;
+  font-size: 11px;
+}
+.tweet-icon{
+  float: left;
+  height: 40px;
+}
+.user-name{
+  color: #3c3c3c;
+  font-weight: bold;
+  float: left;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.trash-button{
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
+.count{
+  float: right;
+  margin-right: 10px;
+}
+
+/* FOOTER */
+
+footer{
+  width: 100%; 
+  height: 40px; 
+  position: absolute;
+  bottom: 0;
+}

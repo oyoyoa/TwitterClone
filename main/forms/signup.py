@@ -1,5 +1,5 @@
 from django.forms import Form
-from django.forms.fields import EmailField, CharField
+from django.forms.fields import EmailField, CharField, ImageField
 from django.forms.widgets import TextInput, PasswordInput
 
 from main.models import User
@@ -8,6 +8,7 @@ from .base import BootstrapFormMixin
 
 
 class SignupForm(BootstrapFormMixin, Form):
+    # icon = models.ImageField(upload_to=icon_file_path, null=True, blank=True)
     name = CharField(
         max_length=256,
         required=True,
@@ -21,7 +22,7 @@ class SignupForm(BootstrapFormMixin, Form):
         max_length=256,
         required=True,
         widget=PasswordInput(attrs={'placeholder': 'パスワード(8文字以上)'}))
-
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 

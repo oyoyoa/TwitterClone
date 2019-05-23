@@ -2,8 +2,38 @@
 {% load common %}
 
 {% block content %}
-<h1>Hello, World</h1>
 {% if logined_user %}
-<p>Hi, {{ logined_user.name }}!</p>
+    {% for tweet in latest_tweet_list %}
+        <div class="article">
+            <div class="article-contents">
+                <a href="{% url 'main:userpage' tweet.user.id %}">
+                    {% if tweet.user.icon %}
+                    <img src="{{ tweet.user.icon.url }}" class="tweet-icon">
+                    {% else %}
+                    <img src="/media/icon/default_icon/icon1.png" class="tweet-icon">
+                    {% endif%}
+                    <span class="user-name">
+                        {{ tweet.user.name }}
+                    </span>
+                </a>
+                <a class="tweet-date">{{ tweet.created_at }}</a>
+                <p class="tweet-content">{{ tweet.content }}</p>
+                {% if tweet.image %}
+                <img src="{{ tweet.image.url }}" height="100">
+                {% endif %}
+                {% if tweet.user == logined_user %}
+                <a href="{% url 'main:tweet_delete' tweet.pk %}" class="trash-button">
+                    <img src="/media/icon/button/trashbox.png" alt="削除" height="20">
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
 {% endif %}
+{% if not logined_user %}
+<h1>TweetAppをはじめよう</h1>
+<a class="btn btn-pink300_rsd mt-4" href="{% url 'main:signup' %}">新規作成</a>
+<a class="btn btn-pink300_rsd mt-4" href="{% url 'main:signin' %}">ログイン</a>
+{% endif %}
+
 {% endblock content %}

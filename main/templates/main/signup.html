@@ -2,7 +2,7 @@
 
 {% block content %}
 <form method="post" class="form-signin">
-  <h1>Sign up</h1>
+  <h1>アカウントを作成する</h1>
   {% csrf_token %}
   {% for field in form %}
     {{ field }}
@@ -10,6 +10,6 @@
       {{ error }}
     {% endfor %}
   {% endfor %}
-  <button type="submit" class="btn btn-info">Sign up</button>
+  <button type="submit" class="btn btn-pink300_rsd my-1">作成</button>
 </form>
 {% endblock content %}

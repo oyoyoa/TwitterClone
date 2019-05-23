@@ -1,0 +1,36 @@
+{% extends "main/base/base.html" %}
+{% block content %}
+<section>
+	<div class="container">
+		<form action="" method="post" class="text-center">
+			{% csrf_token %}
+		    <h3>本当にこのつぶやきを削除してよろしいですか?</h3>
+			<div class="article">
+                <div class="article-contents">
+                    <a href="{% url 'main:userpage' tweet.user.id %}">
+						{% if tweet.user.icon %}
+						<img src="{{ tweet.user.icon.url }}" class="tweet-icon">
+						{% else %}
+						<img src="/media/icon/default_icon/icon1.png" class="tweet-icon">
+						{% endif%}
+						<span class="user-name">
+							{{ tweet.user.name }}
+						</span>
+					</a>
+					<a class="tweet-date">{{ tweet.created_at }}</a>
+                    <p class="tweet-content">{{ tweet.content }}</p>
+                    {% if tweet.image %}
+                    <img src="{{ tweet.image.url }}" height="100">
+                    {% endif %}
+                </div>
+            </div>
+			<div class="text-right pt-2">
+				<a class="btn btn-outline-secondary" href="/">キャンセル</a>
+				<input class="btn btn-danger" type="submit" value="削除" />
+			</div>
+		</form>
+		
+	</div>
+</section>
+
+{% endblock content %}
