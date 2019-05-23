@@ -1,0 +1,26 @@
+{% extends "main/base/base.html" %}
+
+{% block content %}
+    {% if is_logined %}
+	<form  method="post" class="form-tweet" enctype="multipart/form-data">
+        <h1>つぶやく</h1>
+        <span class="count">140</span>
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field }}
+            {% for error in field.errors %}
+            {{ error }}
+            {% endfor %}
+        {% endfor %}
+        <button type="submit" class="btn btn-pink300_rsd tweet-submit">つぶやく</button>
+    </form>
+
+	{% endif %}
+
+
+	{% if not is_logined %}
+        <a class="nav-link" href="{% url 'main:signin' %}">ログインしてください</a>
+    {% endif %}
+
+{% endblock content %}
+

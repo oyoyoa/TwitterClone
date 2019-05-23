@@ -1,12 +1,12 @@
 {% extends "main/base/base.html" %}
 
 {% block content %}
-<h1>form</h1>
-<form method="post" class="form-signin mx-auto">
+<h1>プロフィールを編集</h1>
+<form method="post" class="form-signin mx-auto" enctype="multipart/form-data">
 	{% csrf_token %}
 	{{ form.formset.management_form }}
 	{{ form.as_p }}
 	{{ form.formset.as_p }}
-	<button type="submit" class="button font-weight-bold">Submit</button>
+	<button type="submit" class="btn btn-pink300_rsd">変更を保存</button>
 </form>
 {% endblock content %}

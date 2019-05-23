@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   {% compress css %}
   <link rel="stylesheet" href="{% static 'main/css/base/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% sass_src 'main/css/base.scss' %}">
+  <link rel="stylesheet" href="{% static 'main/css/base/cb-materialbtn.min.css' %}">
+  <link rel="stylesheet" href="{% sass_src 'main/css/main.css' %}">
   {% block css %}
     {{ css }}
   {% endblock %}
@@ -50,7 +51,7 @@
 
   {% block footer %}
    {{ footer }}
-    <footer class="bg-dark">
+    <footer class="sticky-footer font-small bg-dark border-top">
       {% include 'main/base/footer.html' %}
     </footer>
   {% endblock %}
@@ -60,6 +61,7 @@
   <script src="{% static 'main/js/base/jquery.min.js' %}"></script>
   <script src="{% static 'main/js/base/bootstrap.min.js' %}"></script>
   <script src="{% static 'main/js/base/vue.min.js' %}"></script>
+  <script src="{% static 'main/js/tweetform.js' %}"></script>
   {% block js %}
     {{ js }}
   {% endblock %}

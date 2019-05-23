@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+from main.models import User, Tweet
 
 
 class IndexView(TemplateView):
@@ -6,5 +7,7 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['og_type'] = 'website'
+        context['latest_tweet_list'] = Tweet.objects.all().order_by('-created_at')[:23]
+        print('self: ', Tweet.pk)
+        # print('tweet: ', Tweet.objects.filter(id=))
         return context

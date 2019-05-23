@@ -1,11 +1,22 @@
 {% extends "main/base/base.html" %}
 
 {% block content %}
-<h1>Profile</h1>
-<p>{{ logined_user.name }}</p>
-<p>{{ logined_user.email }}</p>
-{% for address in logined_user.get_addresses %}
-<p>{{ address }}</p>
-{% endfor %}
-<a href="{% url 'main:profile_edit' %}">edit</a>
+{% if logined_user %}
+    <h1>プロフィール</h1>
+        {% if logined_user.icon %}
+            <img src="{{ logined_user.icon.url }}" style="height: 50px; width: 50px;">
+        {% else %}
+            <img src="/media/images/default_icon/icon1.png" style="height: 50px; width: 50px;">
+        {% endif%}
+    <p>{{ logined_user.name }}</p>
+    <p>{{ logined_user.email }}</p>
+    {% for address in logined_user.get_addresses %}
+    <p>{{ address }}</p>
+    {% endfor %}
+    <a href="{% url 'main:profile_edit' %}">編集する</a>
+{% endif %}
+{% if not logined_user %}
+    <h1>ログインしてください</h1>
+{% endif %}
+
 {% endblock content %}

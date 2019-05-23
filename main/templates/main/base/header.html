@@ -1,38 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand " href="/">Navbar</a>
+  <a class="navbar-brand" href="/">TweetApp</a>
+  {% if logined_user %}
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">　
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-    <ul class="navbar-nav">
+    <ul class="navbar-nav nav-item d-flex float-right align-items-center">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          {{ logined_user.name }}
+          {% if logined_user.icon %}
+          <img src="{{ logined_user.icon.url }}" width="40px">
+          {% else %}
+          <img src="/media/icon/default_icon/icon1.png" width="40px">
+          {% endif%}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="{% url 'main:userpage' logined_user.id %}">ユーザーページ</a>
+          <a class="dropdown-item" href="{% url 'main:profile_detail' %}">プロフィール</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="{% url 'main:signout' %}">ログアウト</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
+        <a class="btn btn-pink300_rsd" href="{% url 'main:tweet' %}">つぶやく</a>
       </li>
     </ul>
+    {% endif %}
   </div>
 </nav>
