@@ -22,6 +22,8 @@ django-cors-headers = "*"
 django-sass-processor = "*"
 libsass = "*"
 slackweb = "*"
+gunicorn = "*"
+dj-database-url = "*"
 
 [dev-packages]
 httpie = "*"
