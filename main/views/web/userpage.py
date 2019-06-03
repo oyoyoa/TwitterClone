@@ -9,8 +9,8 @@ class UserView(TemplateView):
         user_id = User.id
         context = super().get_context_data(**kwargs)
         context['latest_tweet_list'] = Tweet.objects.filter(user_id=self.kwargs.get('id')).order_by('-created_at')[:23]
-        # print('id: ', id)
+        print('id: ', id)
         print('self: ', self.kwargs.get('id'))
-        print('user: ', Tweet.tweet_id)
+        # print('user: ', Tweet.tweet_id)
         # context['og_type'] = 'website'
         return context

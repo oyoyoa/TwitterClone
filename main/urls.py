@@ -26,8 +26,8 @@ urlpatterns = [
     path('profile/', views.UserDetailView.as_view(), name='profile_detail'),
     path('profile/edit/', views.UserFormView.as_view(), name='profile_edit'),
     path('tweetform/', views.TweetFormView.as_view(), name='tweet'),
-    path(r'^delete/(?<pk>[\w-]+)/', views.TweetDeleteView.as_view(), name='tweet_delete'),
-    path(r'^userpage/(?<id>[\w-]+)/', views.UserView.as_view(), name='userpage'),
+    path('<uuid:pk>/', views.TweetDeleteView.as_view(), name='tweet_delete'),
+    path('<uuid:id>', views.UserView.as_view(), name='userpage'),
 ]
 
 if settings.DEBUG:
