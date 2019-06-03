@@ -186,11 +186,11 @@ AUTH_USER_MODEL = 'main.User'
 LOGIN_URL = '/signin/'
 LOGIN_REDIRECT_URL = '/'
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
-)
+# STATICFILES_FINDERS = (
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#     'compressor.finders.CompressorFinder',
+# )
 
 # Sass/SCSS
 SASS_PROCESSOR_AUTO_INCLUDE = False
