@@ -1,5 +1,6 @@
 # import django_heroku
 import dj_database_url
+import django_heroku
 
 from .base import *
 
@@ -14,3 +15,4 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DATABASES = {
     'default': dj_database_url.config()
 }
+django_heroku.settings(locals())
