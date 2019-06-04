@@ -21,9 +21,9 @@ sys.stdin = os.fdopen(sys.stdin.fileno(), 'r', buffering=1)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
-# BASE_DIR = os.path.dirname(
-#     os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 SLACK_WEBHOOK_URL = os.environ.get('SLACK_WEBHOOK_URL')
 IGNORE_GOOGLE_ANALYTICS = bool(os.environ.get('IGNORE_GOOGLE_ANALYTICS'))
