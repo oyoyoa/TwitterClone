@@ -26,7 +26,6 @@ gunicorn = "*"
 dj-database-url = "*"
 psycopg2 = "*"
 django-heroku = "*"
-whitenoise = "*"
 
 [dev-packages]
 httpie = "*"
