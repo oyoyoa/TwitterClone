@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'corsheaders',
     'main',
-    'gunicorn'
 ]
 
 MIDDLEWARE = [
