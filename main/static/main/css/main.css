@@ -75,6 +75,7 @@ header{
 .tweet-icon{
   float: left;
   height: 40px;
+  width: 40px;
 }
 .user-name{
   color: #3c3c3c;
